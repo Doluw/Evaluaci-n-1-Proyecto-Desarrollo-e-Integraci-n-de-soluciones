@@ -13,6 +13,10 @@ public class SupermercadoDbContext : DbContext
 
     public DbSet<Producto> Productos => Set<Producto>();
 
+    public DbSet<Venta> Ventas => Set<Venta>();
+
+    public DbSet<DetalleVenta> DetallesVenta => Set<DetalleVenta>();
+
     public DbSet<Bodega> Bodegas => Set<Bodega>();
 
     public DbSet<Inventario> Inventarios => Set<Inventario>();
@@ -55,6 +59,32 @@ public class SupermercadoDbContext : DbContext
             .Property(p => p.PrecioUnitario)
             .HasPrecision(18, 2);
 
+        // ===== Ventas =====
+        modelBuilder.Entity<Venta>(venta =>
+        {
+            venta.Property(v => v.RutCliente).HasMaxLength(12);
+            venta.Property(v => v.Subtotal).HasPrecision(18, 2);
+            venta.Property(v => v.PorcentajeDescuento).HasPrecision(5, 2);
+            venta.Property(v => v.Descuento).HasPrecision(18, 2);
+            venta.Property(v => v.Total).HasPrecision(18, 2);
+
+            // Si se borra una venta, se borran sus detalles.
+            venta.HasMany(v => v.Detalles)
+                .WithOne(d => d.Venta)
+                .HasForeignKey(d => d.VentaId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<DetalleVenta>(detalle =>
+        {
+            detalle.Property(d => d.PrecioUnitario).HasPrecision(18, 2);
+
+            // No se puede borrar un producto que ya fue vendido.
+            detalle.HasOne(d => d.Producto)
+                .WithMany()
+                .HasForeignKey(d => d.ProductoId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
         // Crear Sala de Ventas como bodega inicial.
         modelBuilder.Entity<Bodega>().HasData(
             new Bodega

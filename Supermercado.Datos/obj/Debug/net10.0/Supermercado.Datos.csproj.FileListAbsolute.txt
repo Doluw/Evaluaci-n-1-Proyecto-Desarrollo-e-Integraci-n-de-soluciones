@@ -12,3 +12,18 @@ C:\Users\2alck\Desktop\Programacion\Proyecto desarrollo soluciones\Evaluación 1
 C:\Users\2alck\Desktop\Programacion\Proyecto desarrollo soluciones\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.pdb
 C:\Users\2alck\Desktop\Programacion\Proyecto desarrollo soluciones\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.genruntimeconfig.cache
 C:\Users\2alck\Desktop\Programacion\Proyecto desarrollo soluciones\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\Supermercado.Datos\obj\Debug\net10.0\ref\Supermercado.Datos.dll
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.deps.json
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.runtimeconfig.json
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.dll
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.pdb
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.csproj.AssemblyReference.cache
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.AssemblyInfoInputs.cache
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.AssemblyInfo.cs
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.csproj.CoreCompileInputs.cache
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.sourcelink.json
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.dll
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\refint\Supermercado.Datos.dll
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.pdb
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.genruntimeconfig.cache
+C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\ref\Supermercado.Datos.dll

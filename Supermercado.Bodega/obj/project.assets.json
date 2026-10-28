@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "BouncyCastle.Cryptography/2.6.2": {
@@ -2604,19 +2604,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\2alck\\.nuget\\packages\\": {}
+    "C:\\Users\\akihi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\2alck\\Desktop\\Programacion\\Proyecto desarrollo soluciones\\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\\Supermercado.Bodega\\Supermercado.Bodega.csproj",
+      "projectUniqueName": "C:\\Users\\akihi\\OneDrive\\Escritorio\\Repositorios Github\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Bodega\\Supermercado.Bodega.csproj",
       "projectName": "Supermercado.Bodega",
-      "projectPath": "C:\\Users\\2alck\\Desktop\\Programacion\\Proyecto desarrollo soluciones\\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\\Supermercado.Bodega\\Supermercado.Bodega.csproj",
-      "packagesPath": "C:\\Users\\2alck\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\2alck\\Desktop\\Programacion\\Proyecto desarrollo soluciones\\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\\Supermercado.Bodega\\obj\\",
+      "projectPath": "C:\\Users\\akihi\\OneDrive\\Escritorio\\Repositorios Github\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Bodega\\Supermercado.Bodega.csproj",
+      "packagesPath": "C:\\Users\\akihi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\akihi\\OneDrive\\Escritorio\\Repositorios Github\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Bodega\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\2alck\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\akihi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2626,10 +2626,11 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\2alck\\Desktop\\Programacion\\Proyecto desarrollo soluciones\\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
-              "projectPath": "C:\\Users\\2alck\\Desktop\\Programacion\\Proyecto desarrollo soluciones\\Evaluación 1 Proyecto Desarrollo e Integración de soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj"
+            "C:\\Users\\akihi\\OneDrive\\Escritorio\\Repositorios Github\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
+              "projectPath": "C:\\Users\\akihi\\OneDrive\\Escritorio\\Repositorios Github\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj"
             }
           }
         }
@@ -2644,10 +2645,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": {
@@ -2680,7 +2682,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
