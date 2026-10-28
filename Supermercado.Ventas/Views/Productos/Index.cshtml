@@ -1,0 +1,63 @@
+@model List<ProductoPrecioItem>
+@{
+    ViewData["Title"] = "Precios";
+    var cl = new System.Globalization.CultureInfo("es-CL");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Precios de productos</h1>
+    <form method="get" class="d-flex gap-2">
+        <input name="buscar" value="@ViewData["Buscar"]" class="form-control" placeholder="Buscar producto..." />
+        <button class="btn btn-outline-secondary">Buscar</button>
+    </form>
+</div>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success">@mensaje</div>
+}
+
+<p class="text-muted">
+    Solo los productos con precio y con stock en Sala de Ventas se pueden vender.
+</p>
+
+<table class="table table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Id</th>
+            <th>Producto</th>
+            <th>Unidad</th>
+            <th class="text-end">Stock Sala de Ventas</th>
+            <th class="text-end">Precio unitario</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count == 0)
+        {
+            <tr><td colspan="6" class="text-center text-muted">No hay productos.</td></tr>
+        }
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Nombre</td>
+                <td>@p.UnidadMedida</td>
+                <td class="text-end">@p.StockSalaVentas</td>
+                <td class="text-end">
+                    @if (p.PrecioUnitario <= 0)
+                    {
+                        <span class="badge bg-warning text-dark">Sin precio</span>
+                    }
+                    else
+                    {
+                        @p.PrecioUnitario.ToString("C0", cl)
+                    }
+                </td>
+                <td class="text-end">
+                    <a asp-action="EditarPrecio" asp-route-id="@p.Id" class="btn btn-sm btn-outline-primary">Cambiar precio</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
