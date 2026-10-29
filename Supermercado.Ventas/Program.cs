@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore.Extensions;
 using Supermercado.Datos.Data;
+using Supermercado.Ventas.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,8 @@ var connectionString = builder.Configuration
 
 builder.Services.AddDbContext<SupermercadoDbContext>(
     options => options.UseMySQL(connectionString));
-
+    
+builder.Services.AddScoped<VentaService>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
