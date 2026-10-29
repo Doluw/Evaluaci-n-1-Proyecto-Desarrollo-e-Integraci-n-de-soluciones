@@ -176,4 +176,48 @@ public class VentaService
         resultado.VentaId = venta.Id;
         return resultado;
     }
+
+    
+    // Listado de ventas, con filtros opcionales por fecha y caja.
+    public async Task<List<VentaListItem>> ListarAsync(DateTime? fecha, int? caja)
+    {
+        var consulta = _context.Ventas.AsQueryable();
+
+        if (fecha.HasValue)
+        {
+            var desde = fecha.Value.Date;
+            var hasta = desde.AddDays(1);
+            consulta = consulta.Where(v => v.FechaHora >= desde && v.FechaHora < hasta);
+        }
+
+        if (caja.HasValue)
+        {
+            consulta = consulta.Where(v => v.Caja == caja.Value);
+        }
+
+        return await consulta
+            .OrderByDescending(v => v.FechaHora)
+            .Select(v => new VentaListItem
+            {
+                Id = v.Id,
+                FechaHora = v.FechaHora,
+                Caja = v.Caja,
+                RutCliente = v.RutCliente,
+                ClienteRegistrado = v.ClienteRegistrado,
+                Descuento = v.Descuento,
+                Total = v.Total,
+                CantidadProductos = v.Detalles.Count
+            })
+            .ToListAsync();
+    }
+
+    // Una venta con sus productos (para la pantalla de detalle).
+    public async Task<Venta?> ObtenerAsync(int id)
+    {
+        return await _context.Ventas
+            .Include(v => v.Detalles)
+                .ThenInclude(d => d.Producto)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(v => v.Id == id);
+    }
 }

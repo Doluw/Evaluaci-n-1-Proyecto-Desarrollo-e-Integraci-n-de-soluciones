@@ -1,0 +1,91 @@
+@model Supermercado.Datos.Models.Venta
+@{
+    ViewData["Title"] = $"Venta #{Model.Id}";
+    var cl = new System.Globalization.CultureInfo("es-CL");
+}
+
+<a asp-action="Index" class="btn btn-link px-0 mb-2">&larr; Volver al listado</a>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success">@mensaje</div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Venta #@Model.Id</h1>
+    <a asp-action="Create" class="btn btn-success">+ Nueva venta</a>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-5">Fecha</dt>
+                    <dd class="col-7">@Model.FechaHora.ToString("dd-MM-yyyy")</dd>
+
+                    <dt class="col-5">Hora</dt>
+                    <dd class="col-7">@Model.FechaHora.ToString("HH:mm:ss")</dd>
+
+                    <dt class="col-5">Caja</dt>
+                    <dd class="col-7">@Model.Caja</dd>
+
+                    <dt class="col-5">Cliente</dt>
+                    <dd class="col-7">@(Model.RutCliente ?? "—")</dd>
+
+                    <dt class="col-5">Registrado</dt>
+                    <dd class="col-7 mb-0">
+                        @if (Model.ClienteRegistrado)
+                        {
+                            <span class="badge bg-success">Sí</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">No</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="card">
+            <table class="table mb-0 align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Producto</th>
+                        <th class="text-end">Cantidad</th>
+                        <th class="text-end">Precio unitario</th>
+                        <th class="text-end">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var d in Model.Detalles)
+                    {
+                        <tr>
+                            <td>@d.Producto.Nombre</td>
+                            <td class="text-end">@d.Cantidad <small class="text-muted">@d.Producto.UnidadMedida</small></td>
+                            <td class="text-end">@d.PrecioUnitario.ToString("C0", cl)</td>
+                            <td class="text-end">@((d.Cantidad * d.PrecioUnitario).ToString("C0", cl))</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end">Subtotal</td>
+                        <td class="text-end">@Model.Subtotal.ToString("C0", cl)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end">Descuento cliente registrado (@Model.PorcentajeDescuento.ToString("0.##")%)</td>
+                        <td class="text-end text-success">- @Model.Descuento.ToString("C0", cl)</td>
+                    </tr>
+                    <tr class="table-light">
+                        <th colspan="3" class="text-end">Total pagado</th>
+                        <th class="text-end">@Model.Total.ToString("C0", cl)</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

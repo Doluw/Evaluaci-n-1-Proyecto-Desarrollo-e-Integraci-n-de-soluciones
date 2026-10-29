@@ -13,7 +13,28 @@ public class VentasController : Controller
     {
         _ventaService = ventaService;
     }
+    // GET: /Ventas  (listado, con filtros opcionales ?fecha=2026-10-29&caja=3)
+    public async Task<IActionResult> Index(DateTime? fecha, int? caja)
+    {
+        var modelo = new ListadoVentasViewModel
+        {
+            Ventas = await _ventaService.ListarAsync(fecha, caja),
+            Fecha = fecha,
+            Caja = caja
+        };
+        return View(modelo);
+    }
 
+    // GET: /Ventas/Details/5
+    public async Task<IActionResult> Details(int id)
+    {
+        var venta = await _ventaService.ObtenerAsync(id);
+        if (venta == null)
+        {
+            return NotFound();
+        }
+        return View(venta);
+    }
     // GET: /Ventas/Create
     public async Task<IActionResult> Create()
     {
@@ -35,7 +56,7 @@ public class VentasController : Controller
             if (resultado.Exito)
             {
                 TempData["Mensaje"] = $"Venta #{resultado.VentaId} registrada correctamente.";
-                return RedirectToAction(nameof(Create));
+                                return RedirectToAction(nameof(Details), new { id = resultado.VentaId });
             }
 
             foreach (var error in resultado.Errores)

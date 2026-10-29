@@ -38,3 +38,25 @@ public class NuevaVentaViewModel
     public NuevaVentaInput Input { get; set; } = new();
     public List<ProductoVendible> Productos { get; set; } = new();
 }
+
+
+// Fila del listado de ventas.
+public class VentaListItem
+{
+    public int Id { get; set; }
+    public DateTime FechaHora { get; set; }
+    public int Caja { get; set; }
+    public string? RutCliente { get; set; }
+    public bool ClienteRegistrado { get; set; }
+    public decimal Descuento { get; set; }
+    public decimal Total { get; set; }
+    public int CantidadProductos { get; set; }
+}
+
+// Datos de la pantalla de listado (con los filtros aplicados).
+public class ListadoVentasViewModel
+{
+    public List<VentaListItem> Ventas { get; set; } = new();
+    public DateTime? Fecha { get; set; }
+    public int? Caja { get; set; }
+}

@@ -14,7 +14,7 @@ var connectionString = builder.Configuration
 
 builder.Services.AddDbContext<SupermercadoDbContext>(
     options => options.UseMySQL(connectionString));
-    
+
 builder.Services.AddScoped<VentaService>();
 var app = builder.Build();
 
@@ -32,7 +32,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Ventas}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 app.Run();

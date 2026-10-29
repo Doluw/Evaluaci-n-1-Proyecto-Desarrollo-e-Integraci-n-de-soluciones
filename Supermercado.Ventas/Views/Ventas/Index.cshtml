@@ -1,0 +1,92 @@
+@model ListadoVentasViewModel
+@{
+    ViewData["Title"] = "Ventas";
+    var cl = new System.Globalization.CultureInfo("es-CL");
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Ventas registradas</h1>
+    <a asp-action="Create" class="btn btn-success">+ Nueva venta</a>
+</div>
+
+<form method="get" class="card card-body mb-3">
+    <div class="row g-2 align-items-end">
+        <div class="col-sm-4">
+            <label class="form-label small">Fecha</label>
+            <input type="date" name="fecha" value="@Model.Fecha?.ToString("yyyy-MM-dd")" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <label class="form-label small">Caja</label>
+            <select name="caja" class="form-select">
+                <option value="">Todas</option>
+                @for (int i = 1; i <= 10; i++)
+                {
+                    <option value="@i" selected="@(Model.Caja == i)">Caja @i</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <button class="btn btn-outline-secondary">Filtrar</button>
+            <a asp-action="Index" class="btn btn-link">Limpiar</a>
+        </div>
+    </div>
+</form>
+
+<table class="table table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>N°</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Caja</th>
+            <th>Cliente</th>
+            <th>Registrado</th>
+            <th class="text-end">Productos</th>
+            <th class="text-end">Descuento</th>
+            <th class="text-end">Total pagado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Ventas.Count == 0)
+        {
+            <tr><td colspan="10" class="text-center text-muted py-4">No hay ventas.</td></tr>
+        }
+        @foreach (var v in Model.Ventas)
+        {
+            <tr>
+                <td>@v.Id</td>
+                <td>@v.FechaHora.ToString("dd-MM-yyyy")</td>
+                <td>@v.FechaHora.ToString("HH:mm:ss")</td>
+                <td>@v.Caja</td>
+                <td>@(v.RutCliente ?? "—")</td>
+                <td>
+                    @if (v.ClienteRegistrado)
+                    {
+                        <span class="badge bg-success">Sí</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td class="text-end">@v.CantidadProductos</td>
+                <td class="text-end">@(v.Descuento > 0 ? v.Descuento.ToString("C0", cl) : "—")</td>
+                <td class="text-end fw-semibold">@v.Total.ToString("C0", cl)</td>
+                <td class="text-end">
+                    <a asp-action="Details" asp-route-id="@v.Id" class="btn btn-sm btn-outline-primary">Ver detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    @if (Model.Ventas.Count > 0)
+    {
+        <tfoot>
+            <tr class="table-light">
+                <th colspan="8" class="text-end">@Model.Ventas.Count venta(s) — Total vendido</th>
+                <th class="text-end">@Model.Ventas.Sum(v => v.Total).ToString("C0", cl)</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    }
+</table>
