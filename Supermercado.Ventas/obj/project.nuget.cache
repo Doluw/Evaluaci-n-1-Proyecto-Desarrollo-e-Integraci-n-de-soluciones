@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "26Y3c0Rubwo=",
+  "dgSpecHash": "u3AUTH7003g=",
   "success": true,
-  "projectFilePath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
+  "projectFilePath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\likho\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\likho\\.nuget\\packages\\google.protobuf\\3.35.0\\google.protobuf.3.35.0.nupkg.sha512",

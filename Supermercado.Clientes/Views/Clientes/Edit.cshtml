@@ -1,0 +1,19 @@
+@model Supermercado.Clientes.Models.ClienteViewModel
+@{
+    ViewData["Title"] = "Editar cliente";
+    ViewData["RutSoloLectura"] = true;
+}
+
+<h1 class="h3 mb-3">Editar cliente</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post" style="max-width: 720px;">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <partial name="_Form" model="Model" />
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

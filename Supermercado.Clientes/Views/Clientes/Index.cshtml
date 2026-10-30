@@ -1,0 +1,67 @@
+@model List<Supermercado.Datos.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+    var busqueda = ViewData["Busqueda"] as string;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Clientes</h1>
+    <a asp-action="Create" class="btn btn-primary">Nuevo cliente</a>
+</div>
+
+@if (TempData["Ok"] is string ok)
+{
+    <div class="alert alert-success">@ok</div>
+}
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-6">
+        <input name="q" value="@busqueda" class="form-control"
+               placeholder="Buscar por RUT, nombres o apellidos" />
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary">Buscar</button>
+        @if (!string.IsNullOrEmpty(busqueda))
+        {
+            <a asp-action="Index" class="btn btn-link">Limpiar</a>
+        }
+    </div>
+</form>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-light border">No hay clientes para mostrar.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Registrado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Rut</td>
+                    <td>@c.Nombres @c.Apellidos</td>
+                    <td>@(c.Email ?? "—")</td>
+                    <td>@(c.Telefono ?? "—")</td>
+                    <td>@c.FechaRegistro.ToString("dd-MM-yyyy")</td>
+                    <td class="text-end">
+                        <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@c.Id" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,26 @@
+@model Supermercado.Datos.Models.Cliente
+@{
+    ViewData["Title"] = "Eliminar cliente";
+}
+
+<h1 class="h3 mb-3">Eliminar cliente</h1>
+
+<div class="alert alert-warning">
+    ¿Seguro que desea eliminar a este cliente? Las ventas ya registradas no se modifican.
+</div>
+
+<dl class="row" style="max-width: 560px;">
+    <dt class="col-4">RUT</dt>
+    <dd class="col-8">@Model.Rut</dd>
+    <dt class="col-4">Nombre</dt>
+    <dd class="col-8">@Model.Nombres @Model.Apellidos</dd>
+    <dt class="col-4">Correo</dt>
+    <dd class="col-8">@(Model.Email ?? "—")</dd>
+    <dt class="col-4">Teléfono</dt>
+    <dd class="col-8">@(Model.Telefono ?? "—")</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>

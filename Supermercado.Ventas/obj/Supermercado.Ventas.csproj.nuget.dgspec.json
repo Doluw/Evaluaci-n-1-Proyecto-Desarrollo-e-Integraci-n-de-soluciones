@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj": {}
+    "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj": {}
   },
   "projects": {
-    "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
+    "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj",
+        "projectUniqueName": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj",
         "projectName": "Supermercado.Datos",
-        "projectPath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj",
+        "projectPath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj",
         "packagesPath": "C:\\Users\\likho\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\obj\\",
+        "outputPath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -355,14 +355,14 @@
         }
       }
     },
-    "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj": {
+    "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
+        "projectUniqueName": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
         "projectName": "Supermercado.Ventas",
-        "projectPath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
+        "projectPath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\Supermercado.Ventas.csproj",
         "packagesPath": "C:\\Users\\likho\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\obj\\",
+        "outputPath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Ventas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -383,8 +383,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
-                "projectPath": "D:\\Documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj"
+              "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj": {
+                "projectPath": "D:\\documentos\\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\\Supermercado.Datos\\Supermercado.Datos.csproj"
               }
             }
           }

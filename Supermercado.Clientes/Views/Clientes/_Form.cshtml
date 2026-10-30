@@ -1,0 +1,44 @@
+@model Supermercado.Clientes.Models.ClienteViewModel
+@{
+    var rutSoloLectura = ViewData["RutSoloLectura"] as bool? ?? false;
+}
+
+<div class="mb-3">
+    <label asp-for="Rut" class="form-label"></label>
+    @if (rutSoloLectura)
+    {
+        <input asp-for="Rut" class="form-control" readonly />
+        <div class="form-text">El RUT no se puede modificar.</div>
+    }
+    else
+    {
+        <input asp-for="Rut" class="form-control" placeholder="12345678-5" autocomplete="off" />
+        <span asp-validation-for="Rut" class="text-danger"></span>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label asp-for="Nombres" class="form-label"></label>
+        <input asp-for="Nombres" class="form-control" />
+        <span asp-validation-for="Nombres" class="text-danger"></span>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label asp-for="Apellidos" class="form-label"></label>
+        <input asp-for="Apellidos" class="form-control" />
+        <span asp-validation-for="Apellidos" class="text-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input asp-for="Telefono" class="form-control" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+</div>
