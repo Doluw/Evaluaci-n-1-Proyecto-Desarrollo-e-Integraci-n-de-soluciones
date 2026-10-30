@@ -1,0 +1,32 @@
+@model CrearProductoViewModel
+@{
+    ViewData["Title"] = "Nuevo producto";
+}
+
+<div class="form-page">
+    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
+    <div class="form-card">
+        <span class="eyebrow">Catálogo</span>
+        <h1>Crear producto</h1>
+        <p>El identificador del producto se generará automáticamente.</p>
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label"></label>
+                <input asp-for="Nombre" class="form-control" placeholder="Ej: Arroz grado 2" autocomplete="off" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-4">
+                <label asp-for="UnidadMedida" class="form-label"></label>
+                <input asp-for="UnidadMedida" class="form-control" placeholder="Ej: Unidad, kg, litro" autocomplete="off" />
+                <span asp-validation-for="UnidadMedida" class="text-danger"></span>
+            </div>
+            <div class="form-actions">
+                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Crear producto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

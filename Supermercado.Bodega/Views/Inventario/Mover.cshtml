@@ -1,0 +1,46 @@
+@model MoverInventarioViewModel
+@{
+    ViewData["Title"] = "Mover stock";
+}
+
+<div class="form-page wide">
+    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
+    <div class="form-card">
+        <span class="eyebrow">Transferencia interna</span>
+        <h1>Mover stock</h1>
+        <p>La salida y la entrada se realizan juntas para mantener el inventario consistente.</p>
+        <form asp-action="Mover" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label asp-for="BodegaOrigenId" class="form-label"></label>
+                    <select asp-for="BodegaOrigenId" asp-items="Model.Bodegas" class="form-select"><option value="0">Seleccionar origen</option></select>
+                    <span asp-validation-for="BodegaOrigenId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="BodegaDestinoId" class="form-label"></label>
+                    <select asp-for="BodegaDestinoId" asp-items="Model.Bodegas" class="form-select"><option value="0">Seleccionar destino</option></select>
+                    <span asp-validation-for="BodegaDestinoId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                    <label asp-for="ProductoId" class="form-label"></label>
+                    <select asp-for="ProductoId" asp-items="Model.Productos" class="form-select"><option value="0">Seleccionar producto</option></select>
+                    <span asp-validation-for="ProductoId" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Cantidad" class="form-label"></label>
+                    <input asp-for="Cantidad" class="form-control" min="1" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Mover existencias</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
