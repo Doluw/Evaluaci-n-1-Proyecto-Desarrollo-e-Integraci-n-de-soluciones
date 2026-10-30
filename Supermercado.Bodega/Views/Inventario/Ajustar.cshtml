@@ -1,0 +1,43 @@
+@model AjustarInventarioViewModel
+@{
+    ViewData["Title"] = "Ajustar stock";
+}
+
+<div class="form-page">
+    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
+    <div class="form-card">
+        <span class="eyebrow">Inventario</span>
+        <h1>Ajustar stock</h1>
+        <p>Agrega nuevas unidades o descuenta existencias de una bodega.</p>
+        <form asp-action="Ajustar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+            <div class="mb-3">
+                <label asp-for="BodegaId" class="form-label"></label>
+                <select asp-for="BodegaId" asp-items="Model.Bodegas" class="form-select"><option value="0">Seleccionar bodega</option></select>
+                <span asp-validation-for="BodegaId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ProductoId" class="form-label"></label>
+                <select asp-for="ProductoId" asp-items="Model.Productos" class="form-select"><option value="0">Seleccionar producto</option></select>
+                <span asp-validation-for="ProductoId" class="text-danger"></span>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                    <label asp-for="Operacion" class="form-label">Operación</label>
+                    <select asp-for="Operacion" class="form-select"><option value="agregar">Agregar</option><option value="quitar">Quitar</option></select>
+                </div>
+                <div class="col-sm-6">
+                    <label asp-for="Cantidad" class="form-label"></label>
+                    <input asp-for="Cantidad" class="form-control" min="1" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Guardar ajuste</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

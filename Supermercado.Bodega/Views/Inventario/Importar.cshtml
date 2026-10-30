@@ -1,0 +1,34 @@
+@model ImportarJsonViewModel
+@{
+    ViewData["Title"] = "Importar JSON";
+}
+
+<div class="form-page wide">
+    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
+    <div class="form-card">
+        <span class="eyebrow">Carga masiva</span>
+        <h1>Importar existencias</h1>
+        <p>Agrega cantidades a productos existentes mediante un archivo JSON de hasta 1 MB.</p>
+        <form asp-action="Importar" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+            <div class="upload-box mb-4">
+                <label asp-for="Archivo" class="form-label"></label>
+                <input asp-for="Archivo" class="form-control" accept="application/json,.json" />
+                <span asp-validation-for="Archivo" class="text-danger"></span>
+            </div>
+            <div class="json-example">
+                <div><strong>Formato esperado</strong><a href="~/ejemplos/carga-inventario.json" download>Descargar ejemplo</a></div>
+                <pre><code>[
+  { "productoId": 1, "bodegaId": 2, "cantidad": 25 },
+  { "productoId": 3, "bodegaId": 1, "cantidad": 10 }
+]</code></pre>
+            </div>
+            <div class="form-actions mt-4">
+                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Importar archivo</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

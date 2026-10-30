@@ -1,0 +1,60 @@
+@model BodegaDetalleViewModel
+@{
+    ViewData["Title"] = Model.Nombre;
+}
+
+<a class="back-link" asp-action="Index">← Volver a bodegas</a>
+
+<section class="page-heading compact">
+    <div>
+        <span class="eyebrow">@Model.Codigo</span>
+        <h1>@Model.Nombre</h1>
+        <p>@Model.Existencias.Count productos con stock disponible.</p>
+    </div>
+    <div class="heading-actions">
+        <a class="btn btn-outline-primary" asp-controller="Inventario" asp-action="Mover" asp-route-bodegaId="@Model.Id">Mover stock</a>
+        <a class="btn btn-primary" asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id">Ajustar stock</a>
+    </div>
+</section>
+
+@if (TempData["Mensaje"] is string mensaje)
+{
+    <div class="alert alert-success">@mensaje</div>
+}
+
+<div class="table-shell">
+    <div class="table-title">
+        <h2>Productos almacenados</h2>
+        <span>@Model.Existencias.Sum(e => e.Cantidad) unidades totales</span>
+    </div>
+    @if (Model.Existencias.Count == 0)
+    {
+        <div class="empty-state small">
+            <h3>Esta bodega no tiene stock</h3>
+            <p>Agrega productos mediante un ajuste o una importación JSON.</p>
+            <a class="btn btn-primary" asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id">Agregar stock</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table inventory-table align-middle">
+                <thead><tr><th>Producto</th><th>Unidad de medida</th><th class="text-end">Cantidad</th><th></th></tr></thead>
+                <tbody>
+                @foreach (var item in Model.Existencias)
+                {
+                    <tr>
+                        <td><strong>@item.Producto</strong><small>ID @item.ProductoId</small></td>
+                        <td>@item.UnidadMedida</td>
+                        <td class="text-end"><span class="quantity">@item.Cantidad</span></td>
+                        <td class="text-end row-actions">
+                            <a asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Ajustar</a>
+                            <a asp-controller="Inventario" asp-action="Mover" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Mover</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
