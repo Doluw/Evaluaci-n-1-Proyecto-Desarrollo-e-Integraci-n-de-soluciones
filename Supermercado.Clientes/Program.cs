@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore.Extensions;
 using Supermercado.Datos.Data;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Misma base de datos que Ventas y Bodega (cadena "MySql").
 var connectionString = builder.Configuration
     .GetConnectionString("MySql")
     ?? throw new InvalidOperationException(

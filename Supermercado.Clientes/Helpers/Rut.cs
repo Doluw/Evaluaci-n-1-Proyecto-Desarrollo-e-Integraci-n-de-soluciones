@@ -2,10 +2,12 @@ using System.Text.RegularExpressions;
 
 namespace Supermercado.Clientes.Helpers;
 
-// se guarde con el mismo formato RUT que Ventas usa al consultarlo.
+// Misma lógica que Supermercado.Ventas.Helpers.Rut, para que el RUT
+// se guarde con el mismo formato que Ventas usa al consultarlo.
 public static class Rut
 {
-    // Quita puntos y espacios
+    // Quita puntos y espacios, pasa la K a mayúscula y deja el guion.
+    // "12.345.678-k" -> "12345678-K"
     public static string Normalizar(string? rut)
     {
         if (string.IsNullOrWhiteSpace(rut)) return "";
@@ -14,7 +16,7 @@ public static class Rut
         return $"{limpio[..^1]}-{limpio[^1]}";
     }
 
-    // Verifica el formato y el dígito verificador. 
+    // Verifica el formato y el dígito verificador (módulo 11).
     public static bool EsValido(string? rut)
     {
         var r = Normalizar(rut);
