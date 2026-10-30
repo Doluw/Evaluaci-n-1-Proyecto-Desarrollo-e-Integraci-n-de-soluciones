@@ -1,7 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using MySql.EntityFrameworkCore.Extensions;
+using Supermercado.Datos.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionString = builder.Configuration
+    .GetConnectionString("MySql")
+    ?? throw new InvalidOperationException(
+        "No existe la cadena de conexión MySql.");
+
+builder.Services.AddDbContext<SupermercadoDbContext>(
+    options => options.UseMySQL(connectionString));
 
 var app = builder.Build();
 

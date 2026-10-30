@@ -27,3 +27,18 @@ C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Des
 C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.pdb
 C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.genruntimeconfig.cache
 C:\Users\akihi\OneDrive\Escritorio\Repositorios Github\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\ref\Supermercado.Datos.dll
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.deps.json
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.runtimeconfig.json
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.dll
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\bin\Debug\net10.0\Supermercado.Datos.pdb
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.csproj.AssemblyReference.cache
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.AssemblyInfoInputs.cache
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.AssemblyInfo.cs
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.csproj.CoreCompileInputs.cache
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.sourcelink.json
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.dll
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\refint\Supermercado.Datos.dll
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.pdb
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\Supermercado.Datos.genruntimeconfig.cache
+D:\Documentos\Evaluaci-n-1-Proyecto-Desarrollo-e-Integraci-n-de-soluciones\Supermercado.Datos\obj\Debug\net10.0\ref\Supermercado.Datos.dll
