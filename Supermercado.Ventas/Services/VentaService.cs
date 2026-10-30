@@ -51,10 +51,18 @@ public class VentaService
     // ¿El RUT corresponde a un cliente registrado?
     public Task<bool> ClienteRegistradoAsync(string rutNormalizado)
     {
-        // PENDIENTE: cuando Clientes agregue su entidad a Supermercado.Datos,
-        // reemplazar la línea de abajo por:
-        // return _context.Clientes.AnyAsync(c => c.Rut == rutNormalizado);
-        return Task.FromResult(false);
+        return _context.Clientes.AnyAsync(c => c.Rut == rutNormalizado);
+    }
+
+    // Nombre completo del cliente, o null si no está registrado.
+    public async Task<string?> NombreClienteAsync(string? rut)
+    {
+        if (string.IsNullOrEmpty(rut)) return null;
+
+        return await _context.Clientes
+            .Where(c => c.Rut == rut)
+            .Select(c => c.Nombres + " " + c.Apellidos)
+            .FirstOrDefaultAsync();
     }
 
     public async Task<ResultadoVenta> RegistrarAsync(NuevaVentaInput input)

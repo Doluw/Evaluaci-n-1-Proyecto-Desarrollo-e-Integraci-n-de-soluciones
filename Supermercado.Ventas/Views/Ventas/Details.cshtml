@@ -31,7 +31,13 @@
                     <dd class="col-7">@Model.Caja</dd>
 
                     <dt class="col-5">Cliente</dt>
-                    <dd class="col-7">@(Model.RutCliente ?? "—")</dd>
+                    <dd class="col-7">
+                        @(Model.RutCliente ?? "—")
+                        @if (ViewData["NombreCliente"] is string nombreCliente)
+                        {
+                            <br /><small class="text-muted">@nombreCliente</small>
+                        }
+                    </dd>
 
                     <dt class="col-5">Registrado</dt>
                     <dd class="col-7 mb-0">

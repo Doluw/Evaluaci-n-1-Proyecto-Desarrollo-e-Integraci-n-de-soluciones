@@ -33,6 +33,7 @@ public class VentasController : Controller
         {
             return NotFound();
         }
+        ViewData["NombreCliente"] = await _ventaService.NombreClienteAsync(venta.RutCliente);
         return View(venta);
     }
     // GET: /Ventas/Create
@@ -92,6 +93,7 @@ public class VentasController : Controller
             valido = true,
             registrado,
             rut = rutNormalizado,
+            nombre = await _ventaService.NombreClienteAsync(rutNormalizado),
             descuento = VentaService.PorcentajeDescuentoCliente
         });
     }

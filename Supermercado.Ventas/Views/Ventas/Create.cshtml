@@ -200,7 +200,7 @@
             info.innerHTML = '<span class="text-danger">RUT no válido.</span>';
         } else if (r.registrado) {
             porcentajeDescuento = r.descuento;
-            info.innerHTML = `<span class="text-success">Cliente registrado: ${r.descuento}% de descuento.</span>`;
+            info.innerHTML = `<span class="text-success">${esc(r.nombre)} — cliente registrado, ${r.descuento}% de descuento.</span>`;
         } else {
             info.innerHTML = '<span class="text-muted">Cliente no registrado: la venta se hará sin descuento.</span>';
         }
