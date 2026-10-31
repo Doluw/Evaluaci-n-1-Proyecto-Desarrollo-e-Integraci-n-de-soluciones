@@ -57,7 +57,7 @@ public class VentasController : Controller
             if (resultado.Exito)
             {
                 TempData["Mensaje"] = $"Venta #{resultado.VentaId} registrada correctamente.";
-                                return RedirectToAction(nameof(Details), new { id = resultado.VentaId });
+                return RedirectToAction(nameof(Details), new { id = resultado.VentaId });
             }
 
             foreach (var error in resultado.Errores)

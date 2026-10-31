@@ -3,28 +3,26 @@
     ViewData["Title"] = "Importar JSON";
 }
 
-<div class="form-page wide">
-    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
-    <div class="form-card">
-        <span class="eyebrow">Carga masiva</span>
-        <h1>Importar existencias</h1>
-        <p>Agrega cantidades a productos existentes mediante un archivo JSON de hasta 1 MB.</p>
+<div class="mx-auto" style="max-width: 720px;">
+    <a class="btn btn-link px-0 mb-2" asp-controller="Bodegas" asp-action="Index">&larr; Volver a bodegas</a>
+    <div class="card card-body">
+        <h1 class="h3">Importar existencias</h1>
+        <p class="text-muted">Agrega cantidades a productos existentes mediante un archivo JSON de hasta 1 MB.</p>
         <form asp-action="Importar" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
-            <div class="upload-box mb-4">
+            <div class="mb-4">
                 <label asp-for="Archivo" class="form-label"></label>
                 <input asp-for="Archivo" class="form-control" accept="application/json,.json" />
                 <span asp-validation-for="Archivo" class="text-danger"></span>
             </div>
-            <div class="json-example">
-                <div><strong>Formato esperado</strong><a href="~/ejemplos/carga-inventario.json" download>Descargar ejemplo</a></div>
-                <pre><code>[
-  { "productoId": 1, "bodegaId": 2, "cantidad": 25 },
-  { "productoId": 3, "bodegaId": 1, "cantidad": 10 }
+            <div class="card">
+                <div class="card-header d-flex justify-content-between"><strong>Formato esperado</strong><a href="~/ejemplos/carga-inventario.json" download>Descargar ejemplo</a></div>
+                <pre class="card-body bg-light mb-0"><code>[
+  { "productoId": 1, "bodegaId": 1, "cantidad": 50 }
 ]</code></pre>
             </div>
-            <div class="form-actions mt-4">
-                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+            <div class="d-flex gap-2 justify-content-end mt-4">
+                <a class="btn btn-link" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
                 <button class="btn btn-primary" type="submit">Importar archivo</button>
             </div>
         </form>

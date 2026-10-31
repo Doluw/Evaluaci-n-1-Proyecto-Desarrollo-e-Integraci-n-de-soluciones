@@ -1,12 +1,7 @@
 [
   {
     "productoId": 1,
-    "bodegaId": 2,
-    "cantidad": 25
-  },
-  {
-    "productoId": 3,
     "bodegaId": 1,
-    "cantidad": 10
+    "cantidad": 50
   }
 ]

@@ -3,12 +3,11 @@
     ViewData["Title"] = "Mover stock";
 }
 
-<div class="form-page wide">
-    <a class="back-link" asp-controller="Bodegas" asp-action="Index">← Volver a bodegas</a>
-    <div class="form-card">
-        <span class="eyebrow">Transferencia interna</span>
-        <h1>Mover stock</h1>
-        <p>La salida y la entrada se realizan juntas para mantener el inventario consistente.</p>
+<div class="mx-auto" style="max-width: 720px;">
+    <a class="btn btn-link px-0 mb-2" asp-controller="Bodegas" asp-action="Index">&larr; Volver a bodegas</a>
+    <div class="card card-body">
+        <h1 class="h3">Mover stock</h1>
+        <p class="text-muted">La salida y la entrada se realizan juntas para mantener el inventario consistente.</p>
         <form asp-action="Mover" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
             <div class="row g-3 mb-3">
@@ -35,8 +34,8 @@
                     <span asp-validation-for="Cantidad" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-actions">
-                <a class="btn btn-light" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
+            <div class="d-flex gap-2 justify-content-end">
+                <a class="btn btn-link" asp-controller="Bodegas" asp-action="Index">Cancelar</a>
                 <button class="btn btn-primary" type="submit">Mover existencias</button>
             </div>
         </form>

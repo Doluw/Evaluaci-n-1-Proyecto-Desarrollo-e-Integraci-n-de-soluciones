@@ -2,8 +2,8 @@
 -- Generado desde las migraciones de Entity Framework Core (Code First)
 -- del proyecto Supermercado.Datos.
 
-CREATE DATABASE IF NOT EXISTS `supermercado` CHARACTER SET utf8mb4;
-USE `supermercado`;
+CREATE DATABASE IF NOT EXISTS `supermercado_db` CHARACTER SET utf8mb4;
+USE `supermercado_db`;
 
 CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` (
     `MigrationId` varchar(150) NOT NULL,

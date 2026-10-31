@@ -1,3 +1,4 @@
+using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Supermercado.Datos.Data;
 using Supermercado.Datos.Models;
@@ -91,10 +92,15 @@ public class VentaService
             resultado.Errores.Add("Agregue al menos un producto.");
         }
 
-        // Cliente (opcional).
+        // Cada venta debe identificar a su cliente. Si está registrado,
+        // se aplica el descuento correspondiente.
         string? rut = null;
         bool clienteRegistrado = false;
-        if (!string.IsNullOrWhiteSpace(input.RutCliente))
+        if (string.IsNullOrWhiteSpace(input.RutCliente))
+        {
+            resultado.Errores.Add("Ingrese el RUT del cliente.");
+        }
+        else
         {
             if (!Rut.EsValido(input.RutCliente))
             {
@@ -106,6 +112,16 @@ public class VentaService
                 clienteRegistrado = await ClienteRegistradoAsync(rut);
             }
         }
+
+        if (resultado.Errores.Count > 0)
+        {
+            return resultado;
+        }
+
+        // SERIALIZABLE evita que dos cajas vendan simultáneamente las
+        // mismas unidades de inventario.
+        await using var transaction = await _context.Database.BeginTransactionAsync(
+            IsolationLevel.Serializable);
 
         // Inventario de Sala de Ventas de los productos vendidos.
         var ids = lineas.Select(l => l.ProductoId).ToList();
@@ -176,16 +192,26 @@ public class VentaService
         venta.Total = venta.Subtotal - venta.Descuento;
 
         // --- 4. Guardar ---
-        // Un solo SaveChanges: EF guarda la venta, sus detalles y la rebaja
-        // de stock en una misma transacción. Si algo falla, no se guarda nada.
+        // La venta, sus detalles y la rebaja de stock quedan en la misma
+        // transacción. Si la existencia cambió, no se guarda una venta parcial.
         _context.Ventas.Add(venta);
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+        }
+        catch (DbUpdateException)
+        {
+            await transaction.RollbackAsync();
+            resultado.Errores.Add(
+                "No fue posible registrar la venta porque el inventario cambió. Intente nuevamente.");
+            return resultado;
+        }
 
         resultado.VentaId = venta.Id;
         return resultado;
     }
 
-    
     // Listado de ventas, con filtros opcionales por fecha y caja.
     public async Task<List<VentaListItem>> ListarAsync(DateTime? fecha, int? caja)
     {

@@ -3,53 +3,53 @@
     ViewData["Title"] = Model.Nombre;
 }
 
-<a class="back-link" asp-action="Index">← Volver a bodegas</a>
+<a asp-action="Index" class="btn btn-link px-0 mb-2">&larr; Volver a bodegas</a>
 
-<section class="page-heading compact">
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
     <div>
-        <span class="eyebrow">@Model.Codigo</span>
-        <h1>@Model.Nombre</h1>
-        <p>@Model.Existencias.Count productos con stock disponible.</p>
+        <h1 class="h3 mb-1">@Model.Nombre</h1>
+        <span class="badge bg-secondary">@Model.Codigo</span>
     </div>
-    <div class="heading-actions">
+    <div class="d-flex gap-2">
         <a class="btn btn-outline-primary" asp-controller="Inventario" asp-action="Mover" asp-route-bodegaId="@Model.Id">Mover stock</a>
         <a class="btn btn-primary" asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id">Ajustar stock</a>
     </div>
-</section>
+</div>
 
 @if (TempData["Mensaje"] is string mensaje)
 {
     <div class="alert alert-success">@mensaje</div>
 }
 
-<div class="table-shell">
-    <div class="table-title">
-        <h2>Productos almacenados</h2>
-        <span>@Model.Existencias.Sum(e => e.Cantidad) unidades totales</span>
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Productos almacenados</strong>
+        <span class="text-muted">@Model.Existencias.Sum(e => e.Cantidad) unidades</span>
     </div>
     @if (Model.Existencias.Count == 0)
     {
-        <div class="empty-state small">
-            <h3>Esta bodega no tiene stock</h3>
-            <p>Agrega productos mediante un ajuste o una importación JSON.</p>
+        <div class="card-body text-center py-5">
+            <p class="text-muted">Esta bodega no tiene productos con stock.</p>
             <a class="btn btn-primary" asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id">Agregar stock</a>
         </div>
     }
     else
     {
         <div class="table-responsive">
-            <table class="table inventory-table align-middle">
-                <thead><tr><th>Producto</th><th>Unidad de medida</th><th class="text-end">Cantidad</th><th></th></tr></thead>
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr><th>Producto</th><th>Unidad de medida</th><th class="text-end">Cantidad</th><th></th></tr>
+                </thead>
                 <tbody>
                 @foreach (var item in Model.Existencias)
                 {
                     <tr>
-                        <td><strong>@item.Producto</strong><small>ID @item.ProductoId</small></td>
+                        <td>@item.Producto <small class="text-muted d-block">ID @item.ProductoId</small></td>
                         <td>@item.UnidadMedida</td>
-                        <td class="text-end"><span class="quantity">@item.Cantidad</span></td>
-                        <td class="text-end row-actions">
-                            <a asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Ajustar</a>
-                            <a asp-controller="Inventario" asp-action="Mover" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Mover</a>
+                        <td class="text-end fw-semibold">@item.Cantidad</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary" asp-controller="Inventario" asp-action="Ajustar" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Ajustar</a>
+                            <a class="btn btn-sm btn-outline-secondary" asp-controller="Inventario" asp-action="Mover" asp-route-bodegaId="@Model.Id" asp-route-productoId="@item.ProductoId">Mover</a>
                         </td>
                     </tr>
                 }

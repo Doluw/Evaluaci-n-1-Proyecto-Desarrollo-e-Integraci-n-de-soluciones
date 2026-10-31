@@ -10,6 +10,8 @@ public class NuevaVentaInput
     public int? Caja { get; set; }
 
     [Display(Name = "RUT cliente")]
+    [Required(ErrorMessage = "Ingrese el RUT del cliente.")]
+    [StringLength(12, ErrorMessage = "El RUT admite hasta 12 caracteres.")]
     public string? RutCliente { get; set; }
 
     public List<LineaVentaInput> Lineas { get; set; } = new();

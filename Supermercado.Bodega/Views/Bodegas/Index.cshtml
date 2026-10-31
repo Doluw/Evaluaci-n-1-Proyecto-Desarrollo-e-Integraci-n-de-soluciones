@@ -3,17 +3,16 @@
     ViewData["Title"] = "Bodegas";
 }
 
-<section class="page-heading">
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
     <div>
-        <span class="eyebrow">Control de inventario</span>
-        <h1>Bodegas del supermercado</h1>
-        <p>Consulta las existencias y administra el stock de cada ubicación.</p>
+        <h1 class="h3 mb-1">Bodegas</h1>
+        <p class="text-muted mb-0">Existencias disponibles en cada ubicación del supermercado.</p>
     </div>
-    <div class="heading-actions">
-        <a class="btn btn-outline-primary" asp-controller="Inventario" asp-action="Importar">Importar JSON</a>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" asp-controller="Inventario" asp-action="Importar">Importar JSON</a>
         <a class="btn btn-primary" asp-action="Create">Nueva bodega</a>
     </div>
-</section>
+</div>
 
 @if (TempData["Mensaje"] is string mensaje)
 {
@@ -23,49 +22,54 @@
     </div>
 }
 
-<div class="quick-actions">
-    <a asp-controller="Productos" asp-action="Create">
-        <span class="quick-icon">＋</span>
-        <span><strong>Crear producto</strong><small>Registra un producto nuevo</small></span>
-    </a>
-    <a asp-controller="Inventario" asp-action="Ajustar">
-        <span class="quick-icon">±</span>
-        <span><strong>Ajustar stock</strong><small>Agrega o quita cantidades</small></span>
-    </a>
-    <a asp-controller="Inventario" asp-action="Mover">
-        <span class="quick-icon">⇄</span>
-        <span><strong>Mover stock</strong><small>Transfiere entre bodegas</small></span>
-    </a>
+<div class="card card-body mb-3">
+    <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-outline-primary" asp-controller="Productos" asp-action="Create">Nuevo producto</a>
+        <a class="btn btn-outline-primary" asp-controller="Inventario" asp-action="Ajustar">Ajustar stock</a>
+        <a class="btn btn-outline-primary" asp-controller="Inventario" asp-action="Mover">Mover stock</a>
+    </div>
 </div>
 
 @if (Model.Count == 0)
 {
-    <div class="empty-state">
-        <h2>Aún no existen bodegas</h2>
-        <p>Crea la primera ubicación para comenzar a registrar inventario.</p>
-        <a class="btn btn-primary" asp-action="Create">Crear bodega</a>
+    <div class="alert alert-light border">
+        No hay bodegas para mostrar.
+        <a asp-action="Create" class="alert-link">Crear la primera bodega</a>.
     </div>
 }
 else
 {
-    <div class="warehouse-grid">
-        @foreach (var bodega in Model)
-        {
-            <article class="warehouse-card @(bodega.Codigo == "VENTAS" ? "sales-room" : "")">
-                <div class="warehouse-card__top">
-                    <span class="warehouse-code">@bodega.Codigo</span>
-                    @if (bodega.Codigo == "VENTAS")
-                    {
-                        <span class="status-badge">Sala de Ventas</span>
-                    }
-                </div>
-                <h2>@bodega.Nombre</h2>
-                <div class="warehouse-stats">
-                    <div><strong>@bodega.ProductosDistintos</strong><span>productos</span></div>
-                    <div><strong>@bodega.UnidadesTotales</strong><span>unidades</span></div>
-                </div>
-                <a class="card-link" asp-action="Details" asp-route-id="@bodega.Id">Ver inventario <span>→</span></a>
-            </article>
-        }
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th class="text-end">Productos</th>
+                    <th class="text-end">Unidades</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var bodega in Model)
+            {
+                <tr>
+                    <td><code>@bodega.Codigo</code></td>
+                    <td>
+                        @bodega.Nombre
+                        @if (bodega.Codigo == "VENTAS")
+                        {
+                            <span class="badge bg-success ms-1">Sala de Ventas</span>
+                        }
+                    </td>
+                    <td class="text-end">@bodega.ProductosDistintos</td>
+                    <td class="text-end">@bodega.UnidadesTotales</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@bodega.Id">Ver inventario</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
 }
